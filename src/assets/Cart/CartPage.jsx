@@ -1,6 +1,6 @@
 import { useCart } from "../Context/CartContext";
 import { IoClose } from "react-icons/io5";
-import CheckoutPage from "../CheckOut/CheckOutPage";
+import CheckoutPage from "../CheckOut/CheckoutPage";
 import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {

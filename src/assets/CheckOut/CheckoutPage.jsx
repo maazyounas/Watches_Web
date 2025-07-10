@@ -1,5 +1,5 @@
 import { useCart } from "../Context/CartContext";
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import {  FaLock, FaShippingFast, FaRegCreditCard, FaMoneyBillWave, FaChevronRight } from 'react-icons/fa';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { BsFillCreditCardFill } from 'react-icons/bs';
