@@ -91,10 +91,7 @@ const CartPage = () => {
                   </button>
                   <button
                     className="w-full bg-black text-yellow-300 px-4 py-2 text-sm font-bold rounded hover:bg-gray-300 hover:text-black transition-all"
-                    onClick={() => {
-                      toggleCart();
-                      window.location.href = "/forhim";
-                    }}
+                    onClick={() => navigate("/forhim")}
                   >
                     BestSellers For Him
                   </button>
