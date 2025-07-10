@@ -12,7 +12,7 @@ import Watches from "./assets/Watches/Watches";
 import Jewellery from "./assets/Jewellery/Jewellery";
 import ProductDetail from "./assets/ProductDetail/ProductDetail";
 import CategoryProductLayout from "./assets/CategoryProductLayout/CategoryProductLayout";
-import CheckoutPage from "./assets/CheckOut/CheckOutPage";
+import CheckoutPage from "./assets/CheckOut/CheckoutPage";
 import ComplaintForm from "./assets/ComplaintForm/ComplaintForm";
 import Admin from "./assets/Admin/Admin";
 import TrackOrder from "./assets/TrackOrder/TrackOrder";
