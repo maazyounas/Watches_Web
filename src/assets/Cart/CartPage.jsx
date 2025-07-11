@@ -16,12 +16,12 @@ const CartPage = () => {
   const navigate = useNavigate();
   // Helper function to normalize prices
   const normalizePrice = (price) => {
-    if (typeof price === 'number') return price;
-    
+    if (typeof price === "number") return price;
+
     const cleaned = String(price)
-      .replace(/[^\d.]/g, '')
-      .replace(/,/g, '');
-    
+      .replace(/[^\d.]/g, "")
+      .replace(/,/g, "");
+
     const num = parseFloat(cleaned);
     return isNaN(num) ? 0 : num;
   };
@@ -30,16 +30,16 @@ const CartPage = () => {
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
       const price = normalizePrice(item.discountedPrice);
-      return total + (price * (item.quantity || 1));
+      return total + price * (item.quantity || 1);
     }, 0);
   };
 
   // Format price for display
   const formatPrice = (price) => {
     const num = normalizePrice(price);
-    return num.toLocaleString('en-IN', {
+    return num.toLocaleString("en-IN", {
       maximumFractionDigits: 2,
-      minimumFractionDigits: 2
+      minimumFractionDigits: 2,
     });
   };
 
@@ -48,9 +48,9 @@ const CartPage = () => {
       {/* Overlay with higher z-index */}
       {isCartOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-[9998]"
+          className="fixed inset-0 bg-opacity-30 backdrop-blur-sm z-[9998] transition-opacity duration-300"
           onClick={toggleCart}
-        ></div>
+        />
       )}
 
       {/* Sidebar with even higher z-index */}
@@ -66,7 +66,7 @@ const CartPage = () => {
               <h2 className="text-2xl font-bold text-black">Your Cart</h2>
               <button
                 onClick={toggleCart}
-                className="text-3xl text-black hover:text-yellow-500 transition-colors"
+                className="text-3xl text-black hover:text-yellow-500 transition-colors mr-5"
               >
                 <IoClose />
               </button>
@@ -84,14 +84,18 @@ const CartPage = () => {
                     className="w-full bg-black text-yellow-300 px-4 py-2 text-sm font-bold rounded hover:bg-gray-300 hover:text-black transition-all"
                     onClick={() => {
                       toggleCart();
-                      window.location.href = "/forher";
+                      navigate("/forher");
                     }}
                   >
                     BestSellers For Her
                   </button>
+
                   <button
                     className="w-full bg-black text-yellow-300 px-4 py-2 text-sm font-bold rounded hover:bg-gray-300 hover:text-black transition-all"
-                    onClick={() => navigate("/forhim")}
+                    onClick={() => {
+                      toggleCart();
+                      navigate("/forhim");
+                    }}
                   >
                     BestSellers For Him
                   </button>
@@ -149,8 +153,10 @@ const CartPage = () => {
               <p className="text-base font-bold mb-2">
                 Total: Rs.{formatPrice(calculateTotal())}
               </p>
-              <button onClick={()=> navigate("/checkoutpage")}
-              className="w-full bg-black text-yellow-300 py-2 rounded font-semibold hover:bg-yellow-400 hover:text-black transition-colors">
+              <button
+                onClick={() => navigate("/checkoutpage")}
+                className="w-full bg-black text-yellow-300 py-2 rounded font-semibold hover:bg-yellow-400 hover:text-black transition-colors"
+              >
                 Proceed to Checkout
               </button>
             </div>
